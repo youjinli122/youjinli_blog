@@ -21,7 +21,16 @@ module.exports = {
           { text: '设计模式', link: '/config/js/design/index' },
         ],
       },
-      { text: 'Vue', link: '/config/vue/vue' },
+      {
+        text: 'Vue',
+        link: '/config/vue/vue',
+        items: [
+          { text: '基础', link: '/config/Vue/base/index' },
+          { text: 'SSR', link: '/config/Vue/SSR' },
+          { text: 'nuxt', link: '/config/Vue/nuxt' },
+          { text: '$message', link: '/config/Vue/$message' },
+        ],
+      },
       {
         text: 'React',
         link: '/config/React/React',
@@ -46,6 +55,26 @@ module.exports = {
                 text: 'webpack1-文件分析',
                 link: '/config/moduleTools/webpack/webpack1-文件分析',
               },
+              {
+                text: 'webpack2-loader',
+                link: '/config/moduleTools/webpack/webpack2-loader',
+              },
+              {
+                text: 'webpack3-源码流程',
+                link: '/config/moduleTools/webpack/webpack3-源码流程',
+              },
+              {
+                text: 'webpack4-plugin',
+                link: '/config/moduleTools/webpack/webpack4-plugin',
+              },
+              {
+                text: 'webpack-optimize1',
+                link: '/config/moduleTools/webpack/webpack-optimize1',
+              },
+              {
+                text: 'webpack-optimize2',
+                link: '/config/moduleTools/webpack/webpack-optimize2',
+              },
             ],
           },
           {
@@ -61,7 +90,7 @@ module.exports = {
         ],
       },
       { text: '监控', link: '/config/front-matter123456' },
-      { text: 'nginx', link: '/config/front-matter12' },
+      { text: 'nginx', link: '/config/nginx/index' },
     ],
 
     // sidebar: {
