@@ -177,13 +177,13 @@ proxy.name.name = 'zf';
 
 ## vue 实例上常见属性和方法
 
-vm.\$set();
+> vm.\$set();
 
 ```
   vm.$set(vm.state,'a','100');
 ```
 
-vm.\$watch();
+> vm.\$watch();
 
 ```
   vm.$watch('state.count',function(newValue,oldValue){
@@ -191,7 +191,7 @@ vm.\$watch();
   });
 ```
 
-vm.\$mount();
+> vm.\$mount();
 
 ```
   let vm = new Vue({
@@ -200,7 +200,7 @@ vm.\$mount();
   vm.$mount('#app');
 ```
 
-vm.\$nextTick();
+> vm.\$nextTick();
 
 ```
   vm.state.count = 100; // 更高数据后会将更改的内容缓存起来
@@ -457,29 +457,40 @@ let vm = new Vue({
 vue 中的动画
 vue 中的动画就是从无到有或者从有到无产生的。有以下几个状态 transition 组件的应用
 
+```
 .v-enter-active,.v-leave-active {
 transition: opacity 0.25s ease-out;
 }
 .v-enter, .v-leave-to {
 opacity: 0;
 }
+```
+
 切换 isShow 的显示或者隐藏就显示出效果啦~
 
+```
 <button @click="toggle">toggle</button>
 <transition>
 <span v-show="isShow">珠峰架构</span>
 </transition>
+```
+
 默认的 name 是以 v-开头，当然你可以自己指定 name 属性来修改前缀
 
 使用 animate.css 设置动画
+
+```
 .v-enter-active {
 animation:zoomIn 2s linear
 }
 .v-leave-avitve{
 animation:zoomOut 2s linear
 }
+```
+
 直接修改激活时的样式
 
+```
 <transition
 enter-active-class="zoomIn"
 leave-active-class="zoomOut"
@@ -489,16 +500,23 @@ leave-active-class="zoomOut"
     <span class="animated" v-show="isShow">珠峰架构</span>
 
 </transition>
-vue中js动画
-<transition 
+```
+
+vue 中 js 动画
+
+```
+<transition
     @before-enter="beforeEnter"
     @enter="enter"
     @after-enter="afterEnter"
->   
+>
     <span class="animated" v-show="isShow">珠峰架构</span>
 </transition>
-对应的钩子有before-leave,leave,after-leave钩子函数,函数的参数为当前元素
+```
 
+对应的钩子有 before-leave,leave,after-leave 钩子函数,函数的参数为当前元素
+
+```
 beforeEnter(el){
 el.style.color="red"
 },
@@ -513,9 +531,13 @@ done();
 afterEnter(el){
 el.style.color = 'blue';
 }
-使用 js 动画库
-https://github.com/julianshapiro/velocity
+```
 
+使用 js 动画库
+
+- https://github.com/julianshapiro/velocity
+
+```
 <script src="node_modules/velocity-animate/velocity.js"></script>
 
 beforeEnter(el){
@@ -530,18 +552,21 @@ el.style.color = 'blue';
 leave(el,done){
 Velocity(el, {opacity: 0}, {duration: 2000, complete: done})
 }
+```
+
 筛选动画
 
+```
 <div id="app">
     <input type="text" v-model="filterData">
-    <transition-group  
-        enter-active-class="zoomInLeft" 
+    <transition-group
+        enter-active-class="zoomInLeft"
         leave-active-class="zoomOutRight"
     >
         <div v-for="(l,index) in computedData" :key="l.title" class="animated">
             {{l.title}}
         </div>
-    </transition-group>  
+    </transition-group>
 </div>
 <script src="./node_modules/vue/dist/vue.js"></script>
 <script>
@@ -565,3 +590,4 @@ Velocity(el, {opacity: 0}, {duration: 2000, complete: done})
         },
     })
 </script>
+```

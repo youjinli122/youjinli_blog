@@ -23,7 +23,7 @@ module.exports = {
       },
       {
         text: 'Vue',
-        link: '/config/vue/vue',
+        link: '/config/Vue/Vue',
         items: [
           { text: '基础', link: '/config/Vue/base/index' },
           { text: 'SSR', link: '/config/Vue/SSR' },
@@ -38,7 +38,16 @@ module.exports = {
           { text: '基础', link: '/config/React/base/index' },
           { text: 'React-Hooks', link: '/config/React/react-hooks/index' },
           { text: 'React-Router', link: '/config/React/react-router/index' },
-          { text: 'Redux', link: '/config/React/redux/index' },
+          { text: 'mobx', link: '/config/React/mobx/index' },
+          { text: 'next', link: '/config/React/next' },
+          {
+            text: 'Redux',
+            link: '/config/React/redux',
+            items: [
+              { text: 'redux', link: '/config/React/redux/index' },
+              { text: 'redux-saga', link: '/config/React/redux/redux-saga' },
+            ],
+          },
         ],
       },
       { text: '问题汇总', link: '/config/front-matter1233' },
