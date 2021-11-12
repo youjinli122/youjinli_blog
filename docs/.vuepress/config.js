@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
-  title: '尤锦利',
-  description: '努力者的时代',
+  title: '',
+  description: '',
   plugins: ['autobar'],
   palette: path.resolve(__dirname, 'palette.styl'),
   themeConfig: {
@@ -29,6 +29,7 @@ module.exports = {
           { text: 'SSR', link: '/config/Vue/SSR' },
           { text: 'nuxt', link: '/config/Vue/nuxt' },
           { text: '$message', link: '/config/Vue/$message' },
+          { text: 'dom-diff', link: '/config/Vue/domDiff' },
         ],
       },
       {
@@ -46,6 +47,18 @@ module.exports = {
             items: [
               { text: 'redux', link: '/config/React/redux/index' },
               { text: 'redux-saga', link: '/config/React/redux/redux-saga' },
+              {
+                text: 'redux-middleware',
+                link: '/config/React/redux-middleware',
+              },
+            ],
+          },
+          {
+            text: 'Fiber',
+            link: '/config/React/fiber',
+            items: [
+              { text: 'fiber机制', link: '/config/React/fiber/index1' },
+              { text: 'fiber实现', link: '/config/React/fiber/index2' },
             ],
           },
         ],
@@ -83,6 +96,10 @@ module.exports = {
               {
                 text: 'webpack-optimize2',
                 link: '/config/moduleTools/webpack/webpack-optimize2',
+              },
+              {
+                text: 'webpack-HMR',
+                link: '/config/moduleTools/webpack/webpack-HMR',
               },
             ],
           },
