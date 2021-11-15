@@ -101,6 +101,10 @@ module.exports = {
                 text: 'webpack-HMR',
                 link: '/config/moduleTools/webpack/webpack-HMR',
               },
+              {
+                text: 'webpack5',
+                link: '/config/moduleTools/webpack/webpack5',
+              },
             ],
           },
           {
@@ -110,6 +114,16 @@ module.exports = {
               {
                 text: 'rollup',
                 link: '/config/moduleTools/rollup/index',
+              },
+            ],
+          },
+          {
+            text: 'vite',
+            link: '/config/moduleTools/vite',
+            items: [
+              {
+                text: 'vite',
+                link: '/config/moduleTools/vite/index',
               },
             ],
           },
