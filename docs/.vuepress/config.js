@@ -49,7 +49,7 @@ module.exports = {
               { text: 'redux-saga', link: '/config/React/redux/redux-saga' },
               {
                 text: 'redux-middleware',
-                link: '/config/React/redux-middleware',
+                link: '/config/React/redux/redux-middleware',
               },
             ],
           },
