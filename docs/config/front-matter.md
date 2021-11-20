@@ -18,9 +18,6 @@ title: Hello World
 
 ## tags
 
-- Type: `string|string[]`
-- Default: `undefined`
-- Required: `false`
 
 The key to classifier pages and will also be displayed in the post:
 
