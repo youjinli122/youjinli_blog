@@ -26,6 +26,7 @@ module.exports = {
         link: '/config/Vue/Vue',
         items: [
           { text: '基础', link: '/config/Vue/base/index' },
+          { text: 'vue', link: '/config/Vue/base/vue' },
           { text: 'SSR', link: '/config/Vue/SSR' },
           { text: 'nuxt', link: '/config/Vue/nuxt' },
           { text: '$message', link: '/config/Vue/$message' },
