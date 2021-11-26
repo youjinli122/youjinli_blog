@@ -43,6 +43,17 @@ module.exports = {
           { text: 'mobx', link: '/config/React/mobx/index' },
           { text: 'next', link: '/config/React/next' },
           {
+            text: 'react源码',
+            link: '/config/React/react源码',
+            items: [
+              { text: 'react1', link: '/config/React/react源码/react1' },
+              { text: 'react2', link: '/config/React/react源码/react2' },
+              { text: 'react3', link: '/config/React/react源码/react3' },
+              { text: 'react4', link: '/config/React/react源码/react4' },
+              { text: 'react5', link: '/config/React/react源码/react5' },
+            ],
+          },
+          {
             text: 'Redux',
             link: '/config/React/redux',
             items: [
