@@ -1921,9 +1921,13 @@ let workInProgress = {
   updateQueue:null
 }
 render(workInProgress);
-10.2 ReactFiberHooks.js
+```
+
+### 10.2 ReactFiberHooks.js
+
 src\ReactFiberHooks.js
 
+```
 import { scheduleUpdateOnFiber } from './ReactFiberWorkLoop';
 import { Update as UpdateEffect, Passive as PassiveEffect } from './ReactFiberFlags';
 import { HasEffect as HookHasEffect, Passive as HookPassive, Layout as HookLayout} from './ReactHookEffectTags';

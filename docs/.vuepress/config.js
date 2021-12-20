@@ -75,7 +75,7 @@ module.exports = {
           },
         ],
       },
-      { text: '问题汇总', link: '/config/front-matter1233' },
+      { text: '微前端', link: '/config/微前端/index' },
       { text: '算法&工具函数', link: '/config/front-matter123' },
       {
         text: '工程化',
