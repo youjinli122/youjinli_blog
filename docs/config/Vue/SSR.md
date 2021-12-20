@@ -64,7 +64,7 @@ app.listen(3000);
 传入 template 替换掉注释标签
 
 ```
-llet Vue = require('vue');
+let Vue = require('vue');
 let fs = require('fs');
 let template = fs.readFileSync('template.html','utf8')
 let render = require('vue-server-renderer');

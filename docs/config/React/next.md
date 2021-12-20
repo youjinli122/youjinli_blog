@@ -613,6 +613,11 @@ yarn add redux react-redux
 
 ### 9.2 pages_app.js
 
+为什么创建仓库要区分服务端还是客户端？
+
+- 一般来说创建仓库只有一份，这个代码会在服务端执行，每次客户端访问服务器时都要去创建一个新仓库，如果不创建，那么
+  每个客户端每次访问的都是同一个仓库数据就乱了。
+
 pages_app.js
 
 ```
@@ -771,43 +776,43 @@ import \* as types from '../store/action-types';
 +import router from 'next/router';
 function getStore(initialState) {
 if (typeof window == 'undefined') {
-return createStore(initialState);//如果是服务器端,每次都返回新的仓库
+    return createStore(initialState);//如果是服务器端,每次都返回新的仓库
 } else {
 if (!window.\_REDUX_STORE*) {
-window._REDUX_STORE_ = createStore(initialState);
+    window._REDUX_STORE_ = createStore(initialState);
 }
-return window._REDUX_STORE_;
+    return window._REDUX_STORE_;
 }
 }
 class LayoutApp extends App{
 
 - state = { loading: false }
   constructor(props){
-  super(props);
-  this.store = getStore(props.initialState);//3.后台用新状重新创建新仓库
-  //4.初始状态序列化后发给了客户端，在客户端重新创建新的仓库
+    super(props);
+    this.store = getStore(props.initialState);//3.后台用新状重新创建新仓库
+    //4.初始状态序列化后发给了客户端，在客户端重新创建新的仓库
   }
   static async getInitialProps({ Component, ctx }) {
-  let store = getStore();//1.后台创建新仓库 5.每次切换路由都会执行此方法获取老仓库
-  if (typeof window == 'undefined') {//2.后台获取用户信息
-  let options = { url: '/api/currentUser' };
-  if (ctx.req&&ctx.req.headers.cookie) {
-  options.headers = options.headers || {};
-  options.headers.cookie = ctx.req.headers.cookie;
-  }
-  let response = await axios(options).then(res=>res.data);
-  if (response.success) {
-  store.dispatch({ type: types.SET_USER_INFO, payload: response.data });
-  }
+    let store = getStore();//1.后台创建新仓库 5.每次切换路由都会执行此方法获取老仓库
+     if (typeof window == 'undefined') {//2.后台获取用户信息
+        let options = { url: '/api/currentUser' };
+        if (ctx.req&&ctx.req.headers.cookie) {
+        options.headers = options.headers || {};
+        options.headers.cookie = ctx.req.headers.cookie;
+    }
+    let response = await axios(options).then(res=>res.data);
+    if (response.success) {
+        store.dispatch({ type: types.SET_USER_INFO, payload: response.data });
+    }
   }
   let pageProps = {};
   if (Component.getInitialProps)
-  pageProps = await Component.getInitialProps(ctx);
-  let props = { pageProps};
-  if (typeof window == 'undefined') {//后台获取用赋值状态
-  props.initialState=store.getState();
-  }
-  return props;
+    pageProps = await Component.getInitialProps(ctx);
+    let props = { pageProps};
+    if (typeof window == 'undefined') {//后台获取用赋值状态
+        props.initialState=store.getState();
+    }
+    return props;
   }
 - componentDidMount() {
 -       this.routeChangeStart = (url) => {
@@ -824,25 +829,25 @@ class LayoutApp extends App{
 -       router.events.off('routeChangeStart', this.routeChangeComplete)
 - }
   render() {
-  let { Component,pageProps} = this.props;
-  let state = this.store.getState();
+    let { Component,pageProps} = this.props;
+    let state = this.store.getState();
   return (
-  <Provider store={this.store}>
-  <style jsx>
+    <Provider store={this.store}>
+    <style jsx>
+        {
+        `li{ display:inline-block; margin-left:10px; line-height:31px; }`
+        }
+    </style>
+    <div>
+    <header>
+    <img src="/images/jglogo.png" className={_appStyle.logo}/>
+    <ul>
+        <li><Link href="/"><a>首页</a></Link></li>
+        <li><Link href="/user/list" ><a>用户管理</a></Link></li>
+        <li><Link href="/profile"><a>个人中心</a></Link></li>
+    <li>
   {
-  `li{ display:inline-block; margin-left:10px; line-height:31px; }`
-  }
-  </style>
-  <div>
-  <header>
-  <img src="/images/jglogo.png" className={_appStyle.logo}/>
-  <ul>
-  <li><Link href="/"><a>首页</a></Link></li>
-  <li><Link href="/user/list" ><a>用户管理</a></Link></li>
-  <li><Link href="/profile"><a>个人中心</a></Link></li>
-  <li>
-  {
-  state.currentUser ? <span>{state.currentUser.name}</span>:<Link href="/login">登录</Link>
+    state.currentUser ? <span>{state.currentUser.name}</span>:<Link href="/login">登录</Link>
   }
   </li>
   </ul>
@@ -915,27 +920,27 @@ pages_document.js
 ```
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 class CustomDocument extends Document {
-static async getInitialProps(ctx) {
-const props = await Document.getInitialProps(ctx);
-return { ...props };
-}
-render() {
-return (
-<Html>
-<Head>
-<style>
-{
-`*{ padding:0; margin:0; }`
-}
-</style>
-</Head>
-<body>
-<Main />
-<NextScript />
-</body>
-</Html>
-)
-}
+    static async getInitialProps(ctx) {
+        const props = await Document.getInitialProps(ctx);
+        return { ...props };
+    }
+    render() {
+        return (
+            <Html>
+            <Head>
+            <style>
+            {
+            `*{ padding:0; margin:0; }`
+            }
+            </style>
+            </Head>
+            <body>
+            <Main />
+            <NextScript />
+            </body>
+            </Html>
+        )
+    }
 }
 export default CustomDocument;
 ```
