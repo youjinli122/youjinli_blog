@@ -3412,7 +3412,7 @@ export const reconcileChildFibers = ChildReconciler(true);
 export const mountChildFibers = ChildReconciler(false);
 ```
 
-### 13. 多个节点数量不同、key 不同
+## 13. 多个节点数量不同、key 不同
 
 - 多个节点数量不同、key 不同
   > 第一轮比较 A 和 A，相同可以复用，更新，然后比较 B 和 C，key 不同直接跳出第一个循环
