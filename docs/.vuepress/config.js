@@ -39,7 +39,18 @@ module.exports = {
         items: [
           { text: '基础', link: '/config/React/base/index' },
           { text: 'React-Hooks', link: '/config/React/react-hooks/index' },
-          { text: 'React-Router', link: '/config/React/react-router/index' },
+          { text: 'React18', link: '/config/React/React18' },
+          {
+            text: 'React-Router',
+            link: '/config/React/react-router/',
+            items: [
+              { text: 'router5', link: '/config/React/react-router/index' },
+              {
+                text: 'router6',
+                link: '/config/React/react-router/react-router6',
+              },
+            ],
+          },
           { text: 'mobx', link: '/config/React/mobx/index' },
           { text: 'next', link: '/config/React/next' },
           {
