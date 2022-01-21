@@ -9,7 +9,7 @@ module.exports = {
     docsDir: 'docs',
     editLinks: true,
     sidebar: 'auto',
-    sidebarDepth: 5,
+    sidebarDepth: 6,
     // editLinkText: 'Edit this page on GitHub',
     nav: [
       { text: '首页', link: '/' },
@@ -40,6 +40,8 @@ module.exports = {
           { text: '基础', link: '/config/React/base/index' },
           { text: 'React-Hooks', link: '/config/React/react-hooks/index' },
           { text: 'React18', link: '/config/React/React18' },
+          { text: 'mobx', link: '/config/React/mobx/index' },
+          { text: 'next', link: '/config/React/next' },
           {
             text: 'React-Router',
             link: '/config/React/react-router/',
@@ -51,8 +53,6 @@ module.exports = {
               },
             ],
           },
-          { text: 'mobx', link: '/config/React/mobx/index' },
-          { text: 'next', link: '/config/React/next' },
           {
             text: 'react源码',
             link: '/config/React/react源码',
@@ -152,7 +152,22 @@ module.exports = {
           },
         ],
       },
-      { text: '监控', link: '/config/front-matter123456' },
+      {
+        text: '性能/监控',
+        link: '/config/性能监控',
+        items: [
+          {
+            text: '性能',
+            link: '/config/性能监控/性能',
+            items: [
+              {
+                text: 'Lighthouse',
+                link: '/config/性能监控/性能/Lighthouse',
+              },
+            ],
+          },
+        ],
+      },
       { text: 'nginx', link: '/config/nginx/index' },
     ],
 
