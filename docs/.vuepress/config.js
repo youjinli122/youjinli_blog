@@ -62,6 +62,7 @@ module.exports = {
               { text: 'react3', link: '/config/React/react源码/react3' },
               { text: 'react4', link: '/config/React/react源码/react4' },
               { text: 'react5', link: '/config/React/react源码/react5' },
+              { text: 'react6', link: '/config/React/react源码/react6' },
             ],
           },
           {
@@ -123,6 +124,10 @@ module.exports = {
               {
                 text: 'webpack-HMR',
                 link: '/config/moduleTools/webpack/webpack-HMR',
+              },
+              {
+                text: 'webpack-tapable',
+                link: '/config/moduleTools/webpack/webpack-tapable',
               },
               {
                 text: 'webpack5',
